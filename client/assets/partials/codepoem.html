@@ -1,0 +1,67 @@
+
+{{Poem.title}}
+{{title}}
+{{first}}
+{{data.title}}
+{{poem.title}}
+
+<div ng-controller='showController as meep'>
+
+<!-- <form ng-submit="meep.newSavedPoem()"> -->
+<div id="poeminput">
+<form id="codepoem"
+  <div id="first">
+  {{meep.Poem.first}} <p><input type="text" ng-model="meep.savedpoem.inputone" onkeydown="enter2(this)"/>
+  </div>
+
+  <div id="second" style="display: none">
+  {{meep.Poem.second}} <form><input type="text" ng-model="meep.savedpoem.inputtwo" onkeydown="enter3(this)"/></p>
+  </div>
+
+  <div id="third" style="display: none">
+   {{meep.Poem.third}} <form><input type="text" ng-model="meep.savedpoem.inputthree" onkeydown="enter4(this)"/></p>
+  </div>
+
+  <div id="fourth" style="display: none">
+   {{meep.Poem.fourth}} <form><input type="text" ng-model="meep.savedpoem.inputfour" onkeydown="enter5(this)"/></p>
+  </div>
+
+  <div id="fifth" style="display: none">
+   {{meep.Poem.fifth}} <form><input type="text" ng-model="meep.savedpoem.inputfive" onkeydown="enterS(this)"/></p>
+  </div>
+
+  <div id="sharebutton" style="display: none">
+    <input type="checkbox" class="checkbox" id="share" onClick="onClick()" ng-model="meep.newpoem.shared">
+    <label for="share" class="label">Share</label>
+      <div class="social">
+        <ul>
+            <li class="entypo-twitter" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"></li>
+           <li class="entypo-facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"></li>
+          <li class="entypo-mail" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"></li>
+        </ul>
+      </div>
+  </div>
+</div>
+<!-- <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tablindex="-1"> -->
+<input type='button' ng-click="meep.addnewpoem()">
+</form>
+</div>
+<script>
+var count = 0;
+function onClick() {
+  count += 1;
+  document.getElementById("dacount").innerHTML = count;
+  console.log(count)
+};
+</script>
+  <div ng-repeat="test in meep.Poem" >
+    {{test.name}} {{test.title}}
+  </div>
+
+  {{meep.Poem.title}}
+  {{meep.Poem.name}}
+  <p>Total Shared:</p><p id="dacount">0</p>
+  {{meep.first}}
+  {{meep.data.title}}
+  {{meep.poem.title}}
+</div>
